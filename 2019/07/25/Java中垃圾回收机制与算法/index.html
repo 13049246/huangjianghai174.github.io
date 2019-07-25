@@ -6,15 +6,30 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | Hexo</title>
+  <title>垃圾回收机制与算法 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+  <meta name="description" content="垃圾回收机制与算法123任何语言在运行过程中都会创建对象，也就意味着需要在内存中为这些对象在内存中分配空间，在这些对象失去使用的意义的时候，需要释放掉这些内容，保证内存能够提供给新的对象使用。对于对象内存的释放就是垃圾回收机制，也叫做gc，对于java开发者来说gc是一个双刃剑我们这里找了两张搞笑图片分别来表示c语言的垃圾回收和 java的垃圾回收。注意：并不是说谁好谁坏，只是一个调侃图。">
+<meta name="keywords" content="Java,垃圾回收机制,算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="垃圾回收机制与算法">
+<meta property="og:url" content="http://yoursite.com/2019/07/25/Java中垃圾回收机制与算法/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="垃圾回收机制与算法123任何语言在运行过程中都会创建对象，也就意味着需要在内存中为这些对象在内存中分配空间，在这些对象失去使用的意义的时候，需要释放掉这些内容，保证内存能够提供给新的对象使用。对于对象内存的释放就是垃圾回收机制，也叫做gc，对于java开发者来说gc是一个双刃剑我们这里找了两张搞笑图片分别来表示c语言的垃圾回收和 java的垃圾回收。注意：并不是说谁好谁坏，只是一个调侃图。">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://www.52im.net/data/attachment/portal/201508/19/131134xqxjwcwudoncodj3.gif">
+<meta property="og:image" content="http://img.mp.itc.cn/upload/20170228/884c78ceb2c34a03b50c8dc1789ac35f_th.gif">
+<meta property="og:image" content="https://note.youdao.com/yws/public/resource/89ca5ee57ac73a8c6b0bb9e086d85d4b/xmlnote/WEBRESOURCE53711e279e5530645c6a5e52b77b224d/16070">
+<meta property="og:image" content="https://img-blog.csdn.net/20180714164902702?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zOTA2Nzk5MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://note.youdao.com/yws/public/resource/1a2138c8f644f110842ea0abab2717d0/xmlnote/WEBRESOURCE781036252ebcbd21e63f9d40a242e6b1/16111">
+<meta property="og:image" content="https://note.youdao.com/yws/public/resource/1a2138c8f644f110842ea0abab2717d0/xmlnote/WEBRESOURCEeaa1ff30e1908464ceaf09a6ebe966f0/16119">
+<meta property="og:image" content="https://note.youdao.com/yws/public/resource/1a2138c8f644f110842ea0abab2717d0/xmlnote/WEBRESOURCE77c015aebe174826b8cb8ad8072d65a3/16131">
+<meta property="og:image" content="https://note.youdao.com/yws/public/resource/1a2138c8f644f110842ea0abab2717d0/xmlnote/WEBRESOURCE550bf7c0062b6921d4b99be087dca9c3/16144">
+<meta property="og:image" content="https://note.youdao.com/yws/public/resource/1a2138c8f644f110842ea0abab2717d0/xmlnote/WEBRESOURCEec72d6eb6bd31a56f465cb3f3114188c/16155">
+<meta property="og:updated_time" content="2019-07-25T07:22:31.531Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="垃圾回收机制与算法">
+<meta name="twitter:description" content="垃圾回收机制与算法123任何语言在运行过程中都会创建对象，也就意味着需要在内存中为这些对象在内存中分配空间，在这些对象失去使用的意义的时候，需要释放掉这些内容，保证内存能够提供给新的对象使用。对于对象内存的释放就是垃圾回收机制，也叫做gc，对于java开发者来说gc是一个双刃剑我们这里找了两张搞笑图片分别来表示c语言的垃圾回收和 java的垃圾回收。注意：并不是说谁好谁坏，只是一个调侃图。">
+<meta name="twitter:image" content="http://www.52im.net/data/attachment/portal/201508/19/131134xqxjwcwudoncodj3.gif">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -142,78 +157,102 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Java中垃圾回收机制与算法" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/25/Java环境变量配置/" class="archive-article-date">
-  	<time datetime="2019-07-25T08:57:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-25</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/25/Java环境变量配置/">Java环境变量配置</a>
+    <h1 class="article-title" itemprop="name">
+      垃圾回收机制与算法
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">环境变量</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/25/Java中垃圾回收机制与算法/" class="archive-article-date">
+        
+        <a href="/2019/07/25/Java中垃圾回收机制与算法/" class="archive-article-date">
   	<time datetime="2019-07-25T03:30:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-25</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/25/Java中垃圾回收机制与算法/">垃圾回收机制与算法</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="垃圾回收机制与算法"><a href="#垃圾回收机制与算法" class="headerlink" title="垃圾回收机制与算法"></a>垃圾回收机制与算法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">任何语言在运行过程中都会创建对象，也就意味着需要在内存中为这些对象在内存中分配空间，在这些对象失去使用的意义的时候，需要释放掉这些内容，保证内存能够提供给新的对象使用。对于对象内存的释放就是垃圾回收机制，也叫做gc，对于java开发者来说gc是一个双刃剑</span><br><span class="line">我们这里找了两张搞笑图片分别来表示c语言的垃圾回收和 java的垃圾回收。</span><br><span class="line">注意：并不是说谁好谁坏，只是一个调侃图。</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
+<a id="more"></a>
+<p>c语言:<br><img src="http://www.52im.net/data/attachment/portal/201508/19/131134xqxjwcwudoncodj3.gif" alt></p>
+<p>java语言:<br><img src="http://img.mp.itc.cn/upload/20170228/884c78ceb2c34a03b50c8dc1789ac35f_th.gif" alt="Alt text"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">c的垃圾回收是人工的，工作量大，但是可控性高。</span><br><span class="line">java是自动化的，但是可控性很差，甚至有时会出现内存溢出的情况，</span><br><span class="line">内存溢出也就是jvm分配的内存中对象过多，超出了最大可分配内存的大小。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">提到java的垃圾回收机制就不得不提一个方法：</span><br><span class="line"></span><br><span class="line">　System.gc()用于调用垃圾收集器，在调用时，垃圾收集器将运行以回收未使用的内存空间。它将尝试释放被丢弃对象占用的内存。</span><br><span class="line">　然而System.gc（）调用附带一个免责声明，无法保证对垃圾收集器的调用。</span><br><span class="line">　所以System.gc()并不能说是完美主动进行了垃圾回收。</span><br></pre></td></tr></table></figure>
+
+<p>　</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">　作为java程序员还是很有必要了解一下gc，这也是面试过程中经常出现的一道题目。</span><br><span class="line">　我们从三个角度来理解gc。</span><br><span class="line">　1jvm怎么确定哪些对象应该进行回收</span><br><span class="line">　2jvm会在什么时候进行垃圾回收的动作</span><br><span class="line">　3jvm到底是怎么清楚垃圾对象的</span><br></pre></td></tr></table></figure>
+
+<h3 id="jvm怎么确定哪些对象应该进行回收"><a href="#jvm怎么确定哪些对象应该进行回收" class="headerlink" title="jvm怎么确定哪些对象应该进行回收"></a>jvm怎么确定哪些对象应该进行回收</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　对象是否会被回收的两个经典算法：引用计数法，和可达性分析算法。</span><br></pre></td></tr></table></figure>
+
+<p>　</p>
+<h3 id="引用计数法"><a href="#引用计数法" class="headerlink" title="引用计数法"></a>引用计数法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">简单的来说就是判断对象的引用数量。实现方式：给对象共添加一个引用计数器，每当有引用对他进行引用时，计数器的值就加1，当引用失效，也就是不在执行此对象是，他的计数器的值就减1，若某一个对象的计数器的值为0，那么表示这个对象没有人对他进行引用，也就是意味着是一个失效的垃圾对象，就会被gc进行回收。</span><br><span class="line">　但是这种简单的算法在当前的jvm中并没有采用，原因是他并不能解决对象之间循环引用的问题。</span><br><span class="line">　假设有A和B两个对象之间互相引用，也就是说A对象中的一个属性是B，B中的一个属性时A,这种情况下由于他们的相互引用，从而是垃圾回收机制无法识别。</span><br></pre></td></tr></table></figure>
+
+<p>　<img src="https://note.youdao.com/yws/public/resource/89ca5ee57ac73a8c6b0bb9e086d85d4b/xmlnote/WEBRESOURCE53711e279e5530645c6a5e52b77b224d/16070" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">　因为引用计数法的缺点有引入了可达性分析算法，通过判断对象的引用链是否可达来决定对象是否可以被回收。可达性分析算法是从离散数学中的图论引入的，程序把所有的引用关系看作一张图，通过一系列的名为GC Roots的对象作为起始点，从这些节点开始向下搜索，搜索所走过的路径称为引用链。当一个对象到 GC Roots 没有任何引用链相连（就是从 GC Roots 到这个对象不可达）时，则证明此对象是不可用的。</span><br></pre></td></tr></table></figure>
+
+<p>　如图：<br><img src="https://img-blog.csdn.net/20180714164902702?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zOTA2Nzk5MQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt></p>
+<p>###　二在确定了哪些对象可以被回收之后，jvm会在什么时候进行回收</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">　1会在cpu空闲的时候自动进行回收</span><br><span class="line">　2在堆内存存储满了之后</span><br><span class="line">　3主动调用System.gc()后尝试进行回收</span><br></pre></td></tr></table></figure>
+
+<h3 id="三如何回收"><a href="#三如何回收" class="headerlink" title="三如何回收"></a>三如何回收</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">三如何回收</span><br><span class="line">　如何回收说的也就是垃圾收集的算法。</span><br><span class="line">　算法又有四个：标记-清除算法,复制算法,标记-整理算法,分代收集算法.</span><br><span class="line">　</span><br><span class="line">　1 标记-清除算法。</span><br><span class="line">　这是最基础的一种算法，分为两个步骤，第一个步骤就是标记，也就是标记处所有需要回收的对象，标记完成后就进行统一的回收掉哪些带有标记的对象。这种算法优点是简单，缺点是效率问题，还有一个最大的缺点是空间问题，标记清除之后会产生大量不连续的内存碎片，当程序在以后的运行过程中需要分配较大对象时无法找到足够的连续内存而造成内存空间浪费。</span><br></pre></td></tr></table></figure>
+
+<p>执行如图:<br><img src="https://note.youdao.com/yws/public/resource/1a2138c8f644f110842ea0abab2717d0/xmlnote/WEBRESOURCE781036252ebcbd21e63f9d40a242e6b1/16111" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2复制算法。</span><br><span class="line">复制将可用内存按容量划分为大小相等的两块，每次只使用其中的一块。当这一块的内存用完了，就将还存活着的对象复制到另外一块上面，然后再把已使用过的内存空间一次清理掉。这样使得每次都是对其中的一块进行内存回收，内存分配时也就不用考虑内存碎片等复杂情况。只是这种算法的代价是将内存缩小为原来的一半。</span><br></pre></td></tr></table></figure>
+
+<p>复制算法的执行过程如图:<br><img src="https://note.youdao.com/yws/public/resource/1a2138c8f644f110842ea0abab2717d0/xmlnote/WEBRESOURCEeaa1ff30e1908464ceaf09a6ebe966f0/16119" alt><br>复制收集算法在对象存活率较高时就要执行较多的复制操作，效率将会变低。更关键的是，浪费了一半的空间。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">标记-整理算法：</span><br><span class="line">标记整理算法与标记清除算法很相似，但最显著的区别是：标记清除算法仅对不存活的对象进行处理，剩余存活对象不做任何处理，造成内存碎片；而标记整理算法不仅对不存活对象进行处理清除，还对剩余的存活对象进行整理，重新整理，因此其不会产生内存碎片。</span><br></pre></td></tr></table></figure>
+
+<p>标记整理算法的作用示意图如下:<br><img src="https://note.youdao.com/yws/public/resource/1a2138c8f644f110842ea0abab2717d0/xmlnote/WEBRESOURCE77c015aebe174826b8cb8ad8072d65a3/16131" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">分代收集算法:</span><br><span class="line">分代收集算法是一种比较智能的算法，也是现在jvm使用最多的一种算法，他本身其实不是一个新的算法，而是他会在具体的场景自动选择以上三种算法进行垃圾对象回收。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">那么现在的重点就是分代收集算法中说的自动根据具体场景进行选择。这个具体场景到底是什么场景。</span><br><span class="line">场景其实指的是针对jvm的哪一个区域，1.7之前jvm把内存分为三个区域:新生代，老年代，永久代。</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://note.youdao.com/yws/public/resource/1a2138c8f644f110842ea0abab2717d0/xmlnote/WEBRESOURCE550bf7c0062b6921d4b99be087dca9c3/16144" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">了解过场景之后再结合分代收集算法得出结论：</span><br><span class="line">1、在新生代中，每次垃圾收集时都发现有大批对象死去，只有少量存活，那就选用复制算法。只需要付出少量存活对象的复制成本就可以完成收集。</span><br><span class="line">2、老年代中因为对象存活率高、没有额外空间对他进行分配担保，就必须用标记-清除或者标记-整理。</span><br></pre></td></tr></table></figure>
+
+<p>总结:<br><img src="https://note.youdao.com/yws/public/resource/1a2138c8f644f110842ea0abab2717d0/xmlnote/WEBRESOURCEec72d6eb6bd31a56f465cb3f3114188c/16155" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">注意:</span><br><span class="line">在jdk8的时候java废弃了永久代，但是并不意味着我们以上的结论失效，因为java提供了与永久代类似的叫做“元空间”的技术。</span><br><span class="line">废弃永久代的原因：由于永久代内存经常不够用或发生内存泄露，爆出异常java.lang.OutOfMemoryErroy。元空间的本质和永久代类似。不过元空间与永久代之间最大的区别在于：元空间并不在虚拟机中，而是使用本地内存。也就是不局限与jvm可以使用系统的内存。理论上取决于32位/64位系统可虚拟的内存大小。</span><br></pre></td></tr></table></figure>
+
+<p>转载来源：<a href="http://note.youdao.com/noteshare?id=64130a910e2473207f52a7694eb3d0e0" target="_blank" rel="noopener">http://note.youdao.com/noteshare?id=64130a910e2473207f52a7694eb3d0e0</a>
+　</p>
+<p>　</p>
+<p>　</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -233,145 +272,115 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/25/Java中垃圾回收机制与算法/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/24/Java基本数据类型/" class="archive-article-date">
-  	<time datetime="2019-07-24T04:29:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-24</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/07/25/Java环境变量配置/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Java环境变量配置
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/07/24/Java基本数据类型/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java基本数据类型</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/24/Java基本数据类型/">Java基本数据类型</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">基本数据类型</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/24/Java关键字和标识符/" class="archive-article-date">
-  	<time datetime="2019-07-24T04:06:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/24/Java关键字和标识符/">Java关键字和标识符</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">关键字和标识符</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/24/推荐一首歌/" class="archive-article-date">
-  	<time datetime="2019-07-23T16:19:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/24/推荐一首歌/">《骑在银龙的背上》</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">歌曲</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">中岛美雪</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -394,8 +403,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
