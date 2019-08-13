@@ -8,18 +8,22 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Java基本数据类型 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="基本数据类型分类(4类8种)  整数型  byte 占一个字节 -128到127 （字节型） short 占两个字节 -2^15~2^15-1 （短整型） int 占四个字节 -2^31~2^31-1 （整型） long 占八个字节 -2^63~2^63-1 （长整型）">
+  <meta name="description" content="四类八种一个变量的类型，决定了该变量可以包含什么样的值。Java中有八种基本类型，都是Java语言预先定义好的，并且是关键字。  这八种基本类型分别是：整型 （4种）字符型 （1种）浮点型 （2种）布尔型（1种）">
 <meta name="keywords" content="Java,基本数据类型">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java基本数据类型">
 <meta property="og:url" content="http://yoursite.com/2019/07/24/Java基本数据类型/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="基本数据类型分类(4类8种)  整数型  byte 占一个字节 -128到127 （字节型） short 占两个字节 -2^15~2^15-1 （短整型） int 占四个字节 -2^31~2^31-1 （整型） long 占八个字节 -2^63~2^63-1 （长整型）">
+<meta property="og:description" content="四类八种一个变量的类型，决定了该变量可以包含什么样的值。Java中有八种基本类型，都是Java语言预先定义好的，并且是关键字。  这八种基本类型分别是：整型 （4种）字符型 （1种）浮点型 （2种）布尔型（1种）">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-24T11:57:43.853Z">
+<meta property="og:image" content="http://stepimagewm.how2j.cn/513.png">
+<meta property="og:image" content="http://stepimagewm.how2j.cn/515.png">
+<meta property="og:image" content="http://stepimagewm.how2j.cn/516.png">
+<meta property="og:updated_time" content="2019-07-25T15:01:48.833Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基本数据类型">
-<meta name="twitter:description" content="基本数据类型分类(4类8种)  整数型  byte 占一个字节 -128到127 （字节型） short 占两个字节 -2^15~2^15-1 （短整型） int 占四个字节 -2^31~2^31-1 （整型） long 占八个字节 -2^63~2^63-1 （长整型）">
+<meta name="twitter:description" content="四类八种一个变量的类型，决定了该变量可以包含什么样的值。Java中有八种基本类型，都是Java语言预先定义好的，并且是关键字。  这八种基本类型分别是：整型 （4种）字符型 （1种）浮点型 （2种）布尔型（1种）">
+<meta name="twitter:image" content="http://stepimagewm.how2j.cn/513.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -167,115 +171,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="-4-8-">基本数据类型分类(4类8种)</h3>
-<ul>
-<li>整数型
-<ul>
-<li>byte 占一个字节 -128到127 （字节型）</li>
-<li>short 占两个字节 -2^15~2^15-1 （短整型）</li>
-<li>int 占四个字节 -2^31~2^31-1 （整型）</li>
-<li>long 占八个字节 -2^63~2^63-1 （长整型）</li>
-</ul>
-</li>
+        <h1 id="四类八种"><a href="#四类八种" class="headerlink" title="四类八种"></a>四类八种</h1><p>一个变量的类型，决定了该变量可以包含什么样的值。<br>Java中有八种基本类型，都是Java语言预先定义好的，并且是关键字。 </p>
+<p>这八种基本类型分别是：<br>整型 （4种）<br>字符型 （1种）<br>浮点型 （2种）<br>布尔型（1种）</p>
 <a id="more"></a>
-<li>浮点型
-<ul>
-<li>float 占四个字节 -3.403E38~3.403E38 单精度</li>
-<li>double 占八个字节-1.798E308~1.798E308 双精度</li>
-</ul>
-</li>
-<li>字符型
-<ul>
-<li>char 占两个字节 0~65535</li>
-</ul>
-</li>
-<li>布尔型
-<ul>
-<li>boolean
-</li><li>boolean理论上是占八分之一个字节,因为一个开关就可以决定是true和false了,但是java中boolean类型没有明确指定他的大小</li>
-</ul>
-</li>
-</ul>
+<h3 id="1-整形"><a href="#1-整形" class="headerlink" title="1.整形"></a>1.整形</h3><p><img src="http://stepimagewm.how2j.cn/513.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class HelloWorld&#123;</span><br><span class="line">    </span><br><span class="line">  public static void main(String[] args)&#123;</span><br><span class="line">      byte b = 1;</span><br><span class="line">      short s = 200;</span><br><span class="line">      int i = 300;</span><br><span class="line">      long l = 400;</span><br><span class="line"> </span><br><span class="line">      /*如果试图给byte类型的变量赋予超出其范围的值，就会产生编译错误*/</span><br><span class="line">      byte b2 = 200;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h3 id="2-字符型"><a href="#2-字符型" class="headerlink" title="2.字符型"></a>2.字符型</h3><p>char类型用于存放一个字符，值用单引号’表示 (双引号表示字符串)<br>其长度和short一样，也是16位的<br>只能存放一个字符，超过一个字符就会产生编译错误</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public class HelloWorld&#123;</span><br><span class="line">    </span><br><span class="line">  public static void main(String[] args)&#123;</span><br><span class="line">      char c = &apos;中&apos;;</span><br><span class="line">      //char 只能存放一个字符，超过一个字符就会产生编译错误</span><br><span class="line">      char c2 = &apos;中国&apos;; //报错</span><br><span class="line">      char c3 = &apos;ab&apos;; //报错</span><br><span class="line"> </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<blockquote><p>1gb=1024mb<br>
-1mb=1024kb<br>
-1kb=1024byte</p></blockquote>
-<pre><code class="java">public class DataType01{
-    public static void main(String[] args){
-        //将整数100赋值给i变量。
-        int i = 100;
-        //将整数888复制给l1变量
-        long l1 = 888;
-        //程序将2147483648看做int类型，但是这个数据本身已经超出了int的取值范围。
-        //long l2 = 2147483648;报错error
-        //正确的方法应该在后面加上L，这样就会把2147483648看做是long类型。
-        //如果不加L的话，会把2147483648看成int类型，即默认会将整数的字面值看成是int类型
-        long l3 = 2147483648L;
-    }
-}
-</code></pre>
-请注意上面代码里面的
-<pre><code>long l1 = 888;
-</code></pre>
-<br>这行是没有报错的。
-<strong>这里面存在自动类型转换，会自动将int类型转换成long类型，即自动将int类型的888转换成为了long类型。</strong>
-<br>自动类型转换可以自动将int转成long，那么是否可以将long类型转成int类型呢？请看如下代码
-<pre><code class="java">public class DataType02{
-    public static void main(String[] args){
-        long l1 = 1000L;
-        //如果想要将long类型转换成int类型，是不能自动类型转换.
-        //int i1 = l1;错误error
-        //需要强制类型转换，如下方式
-        //程序在运行阶段可能损失精度，所以一定要谨慎使用。一般不建议这样使用。
-        int i1 = (int)l1; //大容量向小容量转换，需要强制类型转换.
-        //给byte类型赋值时，一定要注意byte的取值范围
-        byte b2 = 127;
-        //128本身已经超出了byte的取值范围。
-        //byte b3 = 128;错误error
-        //给short类型赋值时，一定要注意short的取值范围
-        short s1 = 32767;
-        //short s2 = 32768;错误error        
-    }
-}
-</code></pre>
-<strong>如果想要将long类型转成int类型，需要进行强制类型转换，不过这种从大容量向小容量进行转换的时候要谨慎使用，有可能损失精度。</strong>
-<br>在浮点型里面也可以进行强制类型转换
-<pre><code class="java">/*
-    关于浮点型：
-        float  4个字节
-        double 8个字节    
-*/
-public class DataType03{
-    public static void main(String[] args){
-        //3.14默认为double类型
-        double d1 = 3.14;
-        //float f1 = 1.5;错误error
-        //因为1.5默认是double类型，从容量大向容量小的类型转换需要强制类型转换
-        float f1 = (float)1.5;
-        //直接声明1.5为float类型
-        float f2 = 1.5F;    
-    }
-}
-</code></pre>
-<p>boolean类型的数据只有两个值：true/false</p>
-<pre><code class="java">/*
-关于java中的布尔类型:
-    1.boolean类型的数据只有两个值：true/false。
-    2.boolean类型的数据主要用在逻辑运算和条件控制语句中。
-*/
-public class DataType04{
-    public static void main(String[] args){
-        boolean flag = true;
-        if(flag){
-            System.out.println("对");
-        }else{
-            System.out.println("错");
-        }    
-    }
-}
-</code></pre>
+<h3 id="3-浮点型"><a href="#3-浮点型" class="headerlink" title="3.浮点型"></a>3.浮点型</h3><p>浮点数类型有两种 </p>
+<p>float 长度为32位<br>double 长度为64位<br>注意： 默认的小数值是double类型的<br>所以 float f = 54.321会出现编译错误，因为54.321的默认类型是 double，其类型 长度为64，超过了float的长度32<br>在数字后面加一个字母f，直接把该数字声明成float类型<br>float f2 = 54.321f,<br>这样就不会出错了</p>
+<p><img src="http://stepimagewm.how2j.cn/515.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class HelloWorld&#123;</span><br><span class="line">     </span><br><span class="line">  public static void main(String[] args)&#123;</span><br><span class="line">      double d = 123.45;</span><br><span class="line">        </span><br><span class="line">      //该行会出现编译错误，因为54.321是double型的</span><br><span class="line">      float f = 54.321;</span><br><span class="line">        </span><br><span class="line">      float f2 = 54.321f;</span><br><span class="line">        </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h3 id="4-布尔型"><a href="#4-布尔型" class="headerlink" title="4.布尔型"></a>4.布尔型</h3><p>布尔型用于表示真假<br>其长度为1</p>
+<p>boolean b1 = true;<br>boolean b2 = false;</p>
+<p><img src="http://stepimagewm.how2j.cn/516.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public class HelloWorld &#123;</span><br><span class="line"> </span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line"> </span><br><span class="line">        boolean b1 = true;</span><br><span class="line">        boolean b2 = false;</span><br><span class="line"> </span><br><span class="line">        // 虽然布尔型真正存放的数据是0(false) 1(true)</span><br><span class="line">        // 但是，不能直接使用0 1 进行赋值</span><br><span class="line">        boolean b3 = 1;</span><br><span class="line"> </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-String类型"><a href="#5-String类型" class="headerlink" title="5.String类型"></a>5.String类型</h3><p>String类型其实并不是基本类型，但是它是如此广泛的被使用，常常被误以为是一种基本类型。<br>String类型是Immutable的，一旦创建就不能够被改变，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public class HelloWorld &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        String str = &quot;Hello Java&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -524,10 +440,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">基本数据类型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">垃圾回收机制</a>
               </li>
              
@@ -540,6 +452,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">基本数据类型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">环境变量</a>
               </li>
              
@@ -549,6 +465,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">中岛美雪</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">eclipse</a>
               </li>
             
             <div class="clearfix"></div>
